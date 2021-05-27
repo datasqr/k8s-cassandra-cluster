@@ -30,7 +30,7 @@ getall:
 	${KUBECTL} describe pods ${podname} -n ${K8S_NAMESPACE}
 
 cassandra-cqlsh:
-	${KUBECTL} --namespace cassandra run --rm -it cassandra-client \
+	${KUBECTL} --namespace  ${K8S_NAMESPACE} run --rm -it cassandra-client \
 		--restart='Never' \
 		--image bitnami/cassandra:3.11.10-debian-10-r78 \
 		-- cqlsh -u cassandra -p cassandra cassandra
